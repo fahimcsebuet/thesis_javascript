@@ -21,10 +21,25 @@
     </head>
     <body>
         
-        <!-- <div id="OSM_Map" style="height:400px" ></div> -->
-        <div class="row">
+        <div class="map_container row">
+			<div  class="title_container alert-success text-center" >Surveillnace System of Dhaka City</div>
             <div id="OSM_Map" class="text-center"></div>
         </div>
+		<br>
+		<div class="control_container row">
+            <div id="control" >
+			    <select class="selectpicker">
+					<option  value="" disabled="disabled" selected="selected">Select the Algorithm</option>
+					<option value="1">One</option>
+					<option value="2">Two</option>
+				</select>
+				
+				<button type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				</button>
+			</div>
+        </div>
+		
         
         <script type="text/javascript" src="scripts/init_osm.js"></script>
         <script type="text/javascript" src="scripts/init_click.js"></script>

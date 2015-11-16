@@ -1,5 +1,28 @@
 
+
 #OSM_Map {
-	height: 700px;
-	width: 60%;
+	height: 500px;
+	width: 90%;
+	border: 1px solid #5b5b3e;
+	
+}
+
+.map_container {
+	width: 100%;
+	margin-left: 5%;
+	
+}
+
+.control_container{
+	width: 100%;
+	margin-left: 25%;
+}
+
+#control {
+	height: 100px;
+	width: 50%;
+}
+
+.title_container{
+	width: 90%;
 }
