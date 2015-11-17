@@ -75,4 +75,3 @@ function RunTest(){
 	plotOSMLine(map,linestring);
 }
 
-RunTest();
