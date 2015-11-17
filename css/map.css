@@ -14,13 +14,16 @@
 }
 
 .control_container{
-	width: 100%;
+	width: 50%;
 	margin-left: 25%;
+	border: 1px solid #5b5b3e;
 }
 
 #control {
-	height: 100px;
-	width: 50%;
+
+	width: 60%;
+	margin-left: 20%;
+	border: 1px solid #5b5b3e;
 }
 
 .title_container{
