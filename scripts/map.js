@@ -5,6 +5,7 @@ function Map(div) {
     this.zoom = -1;
     this.osm_map = -1;
     this.markers = -1;
+    this.vector = -1;
 
     this.select_source=1;
 	this.select_dest=0;
@@ -52,6 +53,8 @@ Map.prototype.plotOSMLine = function(linestring,style) {
 	
 	vector.addFeatures([featureVector]);
 	this.osm_map.addLayers([vector]);
+
+    this.vector = vector;
 };
 
 Map.prototype.plotResult = function(data,style) {
@@ -63,7 +66,27 @@ Map.prototype.plotResult = function(data,style) {
 
 Map.prototype.runSample = function(){
         sampledata = this.getSampleDataforLineString();
-        samplestyle = map.getSampleStyle();
+        samplestyle = this.getSampleStyle();
         this.plotResult(sampledata,samplestyle);
- }
+};
+
+Map.prototype.clearMap= function() {
+
+    this.markers.clearMarkers();
+    this.select_source=1;
+	this.select_dest=0;
+	this.s_lat = -1;
+	this.s_lon = -1;
+	this.d_lat = -1;
+	this.d_lon = -1;
+
+    try{
+        this.osm_map.removeLayer(this.vector);
+    }
+    catch(err){
+        console.log("line layer not found");
+    }
+
+
+};
 
