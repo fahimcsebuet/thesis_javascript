@@ -29,8 +29,13 @@
                     map = initMap();
 
                     console.log( "End!" );
-
             });
+
+            function runAlgorithm(map){
+
+
+
+            }
 
             function initMap(){
 
@@ -38,11 +43,11 @@
                 map.initOSM();
                 map.setMidPoint(90.3989,23.7937,12);
                 map.setClickEvents();
-                runsample(map);
+                runSample(map);
                 return map;
             }
 
-            function runsample(map){
+            function runSample(map){
                     sampledata = map.getSampleDataforLineString();
                     samplelinestring = map.createLineString(sampledata);
                     samplestyle = map.getSampleStyle();

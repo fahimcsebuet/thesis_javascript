@@ -1,17 +1,17 @@
 
 function Map(div) {
     this.div = div;
-    this.midpoint = {};
-    this.zoom = {};
-    this.osm_map = {};
-    this.markers = {};
+    this.midpoint = -1;
+    this.zoom = -1;
+    this.osm_map = -1;
+    this.markers = -1;
 
     this.select_source=1;
 	this.select_dest=0;
-	this.s_lat = {};
-	this.s_lon = {};
-	this.d_lat = {};
-	this.d_lon = {};
+	this.s_lat = -1;
+	this.s_lon = -1;
+	this.d_lat = -1;
+	this.d_lon = -1;
 };
  
 Map.prototype.initOSM= function() {
