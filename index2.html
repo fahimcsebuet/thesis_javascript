@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="library/bootstrap-3.3.5/css/bootstrap-theme.min.css" >
         <script type="text/javascript" src="library/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 
+        <link rel="stylesheet" href="library/bootstrap-select/css/bootstrap-select.min.css" >
+        <script type="text/javascript" src="library/bootstrap-select/js/bootstrap-select.min.js"></script>
 
 		<script type="text/javascript" src="library/jquery.svg/jquery.svg.js"></script>
 		<script type="text/javascript" src="library/OpenLayers/OpenLayers.js"></script>
@@ -15,23 +17,33 @@
 
         <link rel="stylesheet" type="text/css" href="css/map.css"> 
         <script type="text/javascript" src="scripts/map.js"></script>
+        <script type="text/javascript" src="scripts/map_click.js"></script>
+        <script type="text/javascript" src="scripts/map_sample_values.js"></script>
 
         <script type="text/javascript">
 
             $( document ).ready(function() {
                     console.log( "ready!" );
+                    $('.selectpicker').selectpicker();
+
                     map = new Map("OSM_Map");
                     map.initOSM();
                     map.setMidPoint(90.3989,23.7937,12);
+                    map.setClickEvents();
 
-                    sampledata = map.getSampleDataforLineString();
-                    samplelinestring = map.createLineString(sampledata);
-                    samplestyle = map.getSampleStyle()
-                    map.plotOSMLine(samplelinestring,samplestyle);
-
+                    runsample(map);
+                    //map.setClickEvents();
                     console.log( "End!" );
 
             });
+
+            function runsample(map){
+                    sampledata = map.getSampleDataforLineString();
+                    samplelinestring = map.createLineString(sampledata);
+                    samplestyle = map.getSampleStyle();
+                    map.plotOSMLine(samplelinestring,samplestyle);
+
+             }
 
         </script>
 
@@ -40,26 +52,26 @@
     </head>
     <body>
         
-        <div class="map_container row">
+        < <div class="map_container row">
 			<div  class="title_container alert-success text-center" >Surveillnace System of Dhaka City</div>
             <div id="OSM_Map" class="text-center"></div>
         </div>
 		<br>
 		<div class="control_container row">
             <div id="control" >
+				Select Map file:<input type="file" id="fileInput">
 			    <select class="selectpicker">
 					<option  value="" disabled="disabled" selected="selected">Select the Algorithm</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
+					<option value="1">Simple Dijkstra</option>
+					<option value="2">Other Algo</option>
 				</select>
-				
+
 				<button type="button" class="btn btn-default" aria-label="Left Align">
 						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
 				</button>
+
 			</div>
         </div>
-		
-  
        
        
     </body>
