@@ -3,24 +3,24 @@
  */
 
 $( document ).ready(function() {
-        console.log( "ready!" );
-        $('.selectpicker').selectpicker();
+    console.log( "ready!" );
+    $('.selectpicker').selectpicker();
 
-        map = initMap();
+    map = initMap();
 
-        $('#run_button').click(function(){
-            console.log("Run Pressed");
-            algorithm = $('#algo_selector').val();
-            runAlgorithm(map,algorithm);
-        });
+    $('#run_button').click(function(){
+        console.log("Run Pressed");
+        algorithm = $('#algo_selector').val();
+        runAlgorithm(map,algorithm);
+    });
 
-        $('#clear_button').click(function(){
+    $('#clear_button').click(function(){
 
-            map.clearMap();
+        map.clearMap();
 
-        });
+    });
 
-        console.log( "End!" );
+    console.log( "End!" );
 });
 
 function initMap(){
@@ -34,23 +34,23 @@ function initMap(){
 
 function runAlgorithm(map,algorithm){
 
-        style = map.getSampleStyle();
+    style = map.getSampleStyle();
 
-        if(algorithm  == "0"){
-            console.log("Select an algo..");
-        }
-        else if(algorithm == "1"){
-            console.log("Running Sample ....");
-            data = map.getSampleDataforLineString();
-        }
-        else{
-            console.log("Unimplemented algo ....");
+    if(algorithm  == "0"){
+        console.log("Select an algo..");
+    }
+    else if(algorithm == "1"){
+        console.log("Running Sample ....");
+        data = map.getSampleDataforLineString();
+    }
+    else{
+        console.log("Unimplemented algo ....");
 
-        }
+    }
 
-        if(typeof data != 'undefined'){
-            map.plotResult(data,style);
-        }
+    if(typeof data != 'undefined'){
+        map.plotResult(data,style);
+    }
 
 }
 
