@@ -26,16 +26,21 @@
                     console.log( "ready!" );
                     $('.selectpicker').selectpicker();
 
-                    map = new Map("OSM_Map");
-                    map.initOSM();
-                    map.setMidPoint(90.3989,23.7937,12);
-                    map.setClickEvents();
+                    map = initMap();
 
-                    runsample(map);
-                    //map.setClickEvents();
                     console.log( "End!" );
 
             });
+
+            function initMap(){
+
+                map = new Map("OSM_Map");
+                map.initOSM();
+                map.setMidPoint(90.3989,23.7937,12);
+                map.setClickEvents();
+                runsample(map);
+                return map;
+            }
 
             function runsample(map){
                     sampledata = map.getSampleDataforLineString();
