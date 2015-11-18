@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Map</title>
+		<script type="text/javascript" src="scripts/thirdparty/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="library/bootstrap-3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="library/bootstrap-3.3.5/css/bootstrap-theme.min.css" >
+        <script type="text/javascript" src="library/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="library/bootstrap-select/css/bootstrap-select.min.css" >
+        <script type="text/javascript" src="library/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+		<script type="text/javascript" src="library/jquery.svg/jquery.svg.js"></script>
+		<script type="text/javascript" src="library/OpenLayers/OpenLayers.js"></script>
+		<script type="text/javascript" src="scripts/thirdparty/json2.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/map.css"> 
+        <script type="text/javascript" src="scripts/map.js"></script>
+        <script type="text/javascript" src="scripts/map_click.js"></script>
+        <script type="text/javascript" src="scripts/map_sample_values.js"></script>
+        <script type="text/javascript" src="scripts/mainScript.js"></script>
+
+    </head>
+    <body>
+        
+        < <div class="map_container row">
+			<div  class="title_container alert-success text-center" >Surveillnace System of Dhaka City</div>
+            <div id="OSM_Map" class="text-center"></div>
+        </div>
+		<br>
+		<div class="control_container row">
+            <div id="control" >
+				Select Map file:<input type="file" id="fileInput">
+			    <select id="algo_selector" class="selectpicker">
+					<option value="0" disabled="disabled" selected="selected">Select the Algorithm</option>
+					<option value="1">Run Sample</option>
+                    <option value="2">Simple Dijkstra</option>
+					<option value="3">Other Algo</option>
+				</select>
+
+                <button id="clear_button" type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+				</button>
+
+				<button id="run_button" type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				</button>
+
+			</div>
+        </div>
+       
+       
+    </body>
+
+</html>
