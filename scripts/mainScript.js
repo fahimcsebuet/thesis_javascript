@@ -10,14 +10,14 @@ $( document ).ready(function() {
 
         map = initMap();
 
+        $('#run_button').click(function(){
+            console.log("Run Pressed");
+            algorithm = $('#algo_selector').val();
+            runAlgorithm(map,algorithm);
+        });
+
         console.log( "End!" );
 });
-
-function runAlgorithm(map){
-;
-
-
-}
 
 function initMap(){
 
@@ -25,15 +25,14 @@ function initMap(){
     map.initOSM();
     map.setMidPoint(90.3989,23.7937,12);
     map.setClickEvents();
-    runSample(map);
     return map;
 }
 
-function runSample(map){
-        sampledata = map.getSampleDataforLineString();
-        samplelinestring = map.createLineString(sampledata);
-        samplestyle = map.getSampleStyle();
-        map.plotOSMLine(samplelinestring,samplestyle);
+function runAlgorithm(map,algorithm){
 
- }
+        if(algorithm == "1"){
+            console.log("Running Sample ....");
+            map.runSample();
+        }
+}
 

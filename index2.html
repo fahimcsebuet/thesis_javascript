@@ -32,13 +32,14 @@
 		<div class="control_container row">
             <div id="control" >
 				Select Map file:<input type="file" id="fileInput">
-			    <select class="selectpicker">
+			    <select id="algo_selector" class="selectpicker">
 					<option  value="" disabled="disabled" selected="selected">Select the Algorithm</option>
-					<option value="1">Simple Dijkstra</option>
-					<option value="2">Other Algo</option>
+					<option value="1">Run Sample</option>
+                    <option value="2">Simple Dijkstra</option>
+					<option value="3">Other Algo</option>
 				</select>
 
-				<button type="button" class="btn btn-default" aria-label="Left Align">
+				<button id="run_button" type="button" class="btn btn-default" aria-label="Left Align">
 						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
 				</button>
 

@@ -29,6 +29,17 @@ Map.prototype.setMidPoint = function(x,y,zoom) {
 	this.osm_map.setCenter(this.midpoint,this.zoom);
 };
 
+Map.prototype.createLineString = function(data) {
+	 linestring = new Array();
+	 var length = data[0].length;
+	 for(i=0;i<length;i++)
+	 {
+	  		linestring[i] = new OpenLayers.Geometry.Point(data[1][data[0][i]],data[2][data[0][i]]);
+
+	 }
+	 return linestring;
+};
+
 
 Map.prototype.plotOSMLine = function(linestring,style) {
 	vector = new OpenLayers.Layer.Vector();
@@ -43,15 +54,16 @@ Map.prototype.plotOSMLine = function(linestring,style) {
 	this.osm_map.addLayers([vector]);
 };
 
-Map.prototype.createLineString = function(data) {
-	 linestring = new Array();
-	 var length = data[0].length;
-	 for(i=0;i<length;i++)
-	 {
-	  		linestring[i] = new OpenLayers.Geometry.Point(data[1][data[0][i]],data[2][data[0][i]]);
-			
-	 }
-	 return linestring;
+Map.prototype.plotResult = function(data,style) {
+
+    linestring = this.createLineString(data);
+    this.plotOSMLine(linestring,style);
+
 };
 
+Map.prototype.runSample = function(){
+        sampledata = this.getSampleDataforLineString();
+        samplestyle = map.getSampleStyle();
+        this.plotResult(sampledata,samplestyle);
+ }
 
