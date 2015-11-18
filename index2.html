@@ -19,46 +19,8 @@
         <script type="text/javascript" src="scripts/map.js"></script>
         <script type="text/javascript" src="scripts/map_click.js"></script>
         <script type="text/javascript" src="scripts/map_sample_values.js"></script>
+        <script type="text/javascript" src="scripts/mainScript.js"></script>
 
-        <script type="text/javascript">
-
-            $( document ).ready(function() {
-                    console.log( "ready!" );
-                    $('.selectpicker').selectpicker();
-
-                    map = initMap();
-
-                    console.log( "End!" );
-            });
-
-            function runAlgorithm(map){
-
-
-
-            }
-
-            function initMap(){
-
-                map = new Map("OSM_Map");
-                map.initOSM();
-                map.setMidPoint(90.3989,23.7937,12);
-                map.setClickEvents();
-                runSample(map);
-                return map;
-            }
-
-            function runSample(map){
-                    sampledata = map.getSampleDataforLineString();
-                    samplelinestring = map.createLineString(sampledata);
-                    samplestyle = map.getSampleStyle();
-                    map.plotOSMLine(samplelinestring,samplestyle);
-
-             }
-
-        </script>
-
-
-		
     </head>
     <body>
         
