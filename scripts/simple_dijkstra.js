@@ -4,8 +4,14 @@
 
 function simple_dijkstra(map){
 
-    data = 0;
+    data1 = 0;
 
+    uurl = 'http://fahimcsebuet.github.io/thesis_javascript/graph/edge_list.txt';
+    $.get(uurl, function(data) {
+            //do_something_with(data)
+        console.log(data);
+    }, 'text');
 
-    return data;
+    return data1;
 }
+
