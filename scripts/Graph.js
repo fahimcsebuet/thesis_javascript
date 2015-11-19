@@ -38,6 +38,37 @@ Graph.prototype.pathsFrom = function(from){
     previous = [];
     queue = [];
 
+    Q = new PriorityQueue(compareWeights);
+	Q.add(array(dist[from], from));
+
+    while(Q.size() > 0) {
+
+            //list($distance, $u) = Q.remove();
+
+            if (typeof visited[u] != 'undefined') {
+                continue;
+            }
+            visited[u] = True;
+
+            if (typeof visited[u] == 'undefined') {
+                console.log("WARNING: 'u' is not found in the node list\n");
+            }
+
+            for(k=0;nodes[u].lenght;k++)
+            {
+                edge = nodes[u][k];
+                alt = dist[u] + edge.weight;
+                end = edge.end;
+                if (typeof dist[end] == 'undefined' || alt < dist[end]) {
+                    previous[end] = u;
+                    dist[end] = alt;
+                    Q.add(array(dist[end], end));
+                }
+            }
+    }
+
+
+	nodes = this.nodes;
     return [dist,previous]
 };
 
@@ -65,6 +96,11 @@ Graph.prototype.getPath = function(from,to){
     prev = a[1];
 	return this.paths_to(prev,to);
 };
+
+function compareWeights(a, b) {
+	return a.data[0] - b.data[0];
+}
+
 
 
 

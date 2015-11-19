@@ -64,8 +64,31 @@ PriorityQueue.prototype.debug = function(){
 			return;
 		}
 		while(node) {
-			console.log("[i]=" + node.data[1] + " (" + $node.data[0] + ")\n");
+			console.log("[i]=" + node.data[1] + " (" + node.data[0] + ")\n");
 			node = node.next;
 			i++;
 		}
 };
+
+PriorityQueue.prototype.size = function(){
+
+        return this.size;
+
+};
+
+PriorityQueue.prototype.peak = function(){
+
+        return this.liststart.data;
+
+};
+PriorityQueue.prototype.remove = function(){
+
+        x = this.peak();
+		this.size = this.size - 1;
+		this.liststart = this.liststart.next;
+		//print "Debug: Removed node. New size=" . $this->size . "\n";
+		//$this->debug();
+		return x;
+
+};
+
