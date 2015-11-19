@@ -5,7 +5,7 @@ function Map(div) {
     this.zoom = -1;
     this.osm_map = -1;
     this.markers = -1;
-    this.vector = -1;
+    this.vectors = [];
 
     this.select_source=1;
 	this.select_dest=0;
@@ -54,7 +54,7 @@ Map.prototype.plotOSMLine = function(linestring,style) {
 	vector.addFeatures([featureVector]);
 	this.osm_map.addLayers([vector]);
 
-    this.vector = vector;
+    this.vectors.push(vector);
 };
 
 Map.prototype.plotResult = function(data,style) {
@@ -81,10 +81,15 @@ Map.prototype.clearMap= function() {
 	this.d_lon = -1;
 
     try{
-        this.osm_map.removeLayer(this.vector);
+        var index;
+        for	(index = 0; index < this.vectors.length; index++) {
+                this.osm_map.removeLayer(this.vectors[index]);
+        }
+
+        this.vectors = [];
     }
     catch(err){
-        console.log("line layer not found");
+        console.log("line layer not found"+ err);
     }
 
 
