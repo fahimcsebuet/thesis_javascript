@@ -2,6 +2,9 @@
  * Created by milu on 11/18/15.
  */
 
+edge_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/edge_list.txt';
+node_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/node_list.txt';
+
 $( document ).ready(function() {
         console.log( "ready!" );
         $('.selectpicker').selectpicker();
