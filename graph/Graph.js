@@ -9,11 +9,24 @@ function Edge(start, end, weight) {
 	this.weight = weight;
 }
 
+function Point(lon,lat){
+
+    this.lon = lon;
+    this.lat = lat;
+
+}
+
 function Graph(){
 
     this.nodes = [];
+    this.nodes_point = [];
 
 }
+
+Graph.prototype.addNodePoint = function(node,point){
+
+    this.nodes_point[node] = point
+};
 
 Graph.prototype.addEdge = function(start, end, weight){
 
@@ -23,6 +36,17 @@ Graph.prototype.addEdge = function(start, end, weight){
 
     edge = new Edge(start, end, weight);
     this.nodes[start].push(edge);
+};
+
+Graph.prototype.addEdgeWeightLess = function(start, end){
+
+    weight = this.getWeight(start, end);
+    this.addEdge(start, end, weight);
+};
+
+Graph.prototype.getWeight = function(start,end){
+
+        return 1;
 };
 
 Graph.prototype.removeNode = function(index){
@@ -113,6 +137,28 @@ Graph.prototype.getPath = function(from,to){
     prev = pathfrom[1];
 	return this.pathsTo(prev,to);
 };
+
+Graph.prototype.getResultDataPath = function(from,to){
+
+    rpath = getPath(from,to);
+
+    var k;
+    rdata = [];
+    rdata[0] = [];
+    rdata[1] = [];
+    rdata[2] = [];
+    for(k=0;k<rpath.length;k++){
+
+        rdata[0][k] = rpath[k];
+        rdata[1][rdata[0][k]] = this.nodes_point[rdata[0][k]].lon;
+        rdata[2][rdata[0][k]] = this.nodes_point[rdata[0][k]].lat;
+
+    }
+
+    return rdata;
+};
+
+
 
 function compareWeights(a, b) {
 	return a.data[0] - b.data[0];

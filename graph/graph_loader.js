@@ -5,35 +5,40 @@
 node_list = -1;
 edge_list = -1;
 
-function load_graph(edge_list_url,node_list_url){
+function load_graph(edge_list_url,node_list_url,callback){
 
-    graph = 0;
-
-
-    return graph;
+    graph = new Graph();
+    getNodeList(node_list_url,edge_list_url,graph,callback);
 }
 
-function getNodeList(url){
+function getNodeList(node_list_url,edge_list_url,graph,callback){
 
-    $.get(url, function(data) {
-        console.log(data);
-
-        getEdgeList();
+    $.get(node_list_url, function(data) {
+        //console.log(data);
+        load_node(data,graph);
+        getEdgeList(edge_list_url,graph,callback);
 
     }, 'text');
 
 }
 
-function load_node(nodes){
+function getEdgeList(edge_list_url,graph,callback){
 
-
-}
-
-function getEdgeList(url){
-
-    $.get(url, function(data) {
-        console.log(data);
-
+    $.get(edge_list_url, function(data) {
+        //console.log(data);
+        load_edge(data,graph);
+        callback(graph);
     }, 'text');
 
 }
+
+function load_node(data,graph){
+
+
+}
+
+function load_edge(data,graph){
+
+
+}
+

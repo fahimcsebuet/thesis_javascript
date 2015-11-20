@@ -46,23 +46,23 @@ function runAlgorithm(map,algorithm){
         else if(algorithm == "1"){
 
                 console.log("Running Sample ....");
-                data = map.getSampleDataforLineString();
+                sdata = map.getSampleDataforLineString();
                 GraphTest();
 
         }
         else if(algorithm == "2"){
 
                 console.log("Running Sample Dijkstra ....");
-                data = simple_dijkstra(map);
-                data = map.getSampleDataforLineString();
+                sdata = simple_dijkstra(map);
+                sdata = map.getSampleDataforLineString();
         }
         else{
                 console.log("Unimplemented algo ....");
 
         }
 
-        if(typeof data != 'undefined'){
-                map.plotResult(data,style);
+        if(typeof sdata != 'undefined'){
+                map.plotResult(sdata,style);
         }
 
 }
