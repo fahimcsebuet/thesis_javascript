@@ -57,8 +57,8 @@ PriorityQueue.prototype.add = function(x){
 
 PriorityQueue.prototype.debug = function(){
 
-    node = this.liststart;
-		i = 0;
+        node = this.liststart;
+		var i = 0;
 		if (!node) {
 			console.log("<< No nodes >>\n");
 			return;

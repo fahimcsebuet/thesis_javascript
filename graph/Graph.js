@@ -39,11 +39,14 @@ Graph.prototype.pathsFrom = function(from){
     queue = [];
 
     Q = new PriorityQueue(compareWeights);
-	Q.add(array(dist[from], from));
+	Q.add([dist[from], from]);
 
     while(Q.size() > 0) {
 
-            //list($distance, $u) = Q.remove();
+            a = Q.remove();
+            distance = a[0];
+            u = a[1];
+
 
             if (typeof visited[u] != 'undefined') {
                 continue;
@@ -62,7 +65,7 @@ Graph.prototype.pathsFrom = function(from){
                 if (typeof dist[end] == 'undefined' || alt < dist[end]) {
                     previous[end] = u;
                     dist[end] = alt;
-                    Q.add(array(dist[end], end));
+                    Q.add([dist[end], end]);
                 }
             }
     }
