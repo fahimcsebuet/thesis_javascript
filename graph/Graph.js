@@ -41,25 +41,38 @@ Graph.prototype.pathsFrom = function(from){
     Q = new PriorityQueue(compareWeights);
 	Q.add([dist[from], from]);
 
-    while(Q.size() > 0) {
+    nodes = this.nodes;
 
-            a = Q.remove();
-            distance = a[0];
-            u = a[1];
+    while(Q.getSize() > 0) {
 
+            //console.log("size = "+Q.getSize());
+
+            node_data = Q.remove();
+            distance = node_data[0];
+            u = node_data[1];
+
+            //console.log(node_data);
 
             if (typeof visited[u] != 'undefined') {
                 continue;
             }
-            visited[u] = True;
+            visited[u] = true;
 
-            if (typeof visited[u] == 'undefined') {
+            //console.log("visited-"+ u + "=" +visited[u]);
+
+            if (typeof nodes[u] == 'undefined') {
                 console.log("WARNING: 'u' is not found in the node list\n");
+                 continue;
             }
 
-            for(k=0;nodes[u].lenght;k++)
+            var k;
+            //console.log("node length = "+ nodes[u].length);
+
+            for(k=0; k < nodes[u].length; k++)
             {
                 edge = nodes[u][k];
+                //console.log("edge="+edge);
+
                 alt = dist[u] + edge.weight;
                 end = edge.end;
                 if (typeof dist[end] == 'undefined' || alt < dist[end]) {
@@ -70,8 +83,6 @@ Graph.prototype.pathsFrom = function(from){
             }
     }
 
-
-	nodes = this.nodes;
     return [dist,previous]
 };
 
@@ -94,10 +105,13 @@ Graph.prototype.pathsTo = function(node_dsts, tonode){
 
 Graph.prototype.getPath = function(from,to){
 
-    a = this.paths_from(from);
-    distances = a[0];
-    prev = a[1];
-	return this.paths_to(prev,to);
+    pathfrom = this.pathsFrom(from);
+    //console.log(pathfrom[0]);
+    //console.log(pathfrom[1]);
+
+    distances = pathfrom[0];
+    prev = pathfrom[1];
+	return this.pathsTo(prev,to);
 };
 
 function compareWeights(a, b) {

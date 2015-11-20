@@ -47,6 +47,8 @@ function runAlgorithm(map,algorithm){
 
                 console.log("Running Sample ....");
                 data = map.getSampleDataforLineString();
+                GraphTest();
+
         }
         else if(algorithm == "2"){
 
@@ -64,4 +66,6 @@ function runAlgorithm(map,algorithm){
         }
 
 }
+
+
 

@@ -51,7 +51,7 @@ PriorityQueue.prototype.add = function(x){
 			}
 		}
 		//print "Debug: Appended node. New size=" . $this->size . "\n";
-		//$this->debug();
+		//this.debug();
 
 };
 
@@ -64,13 +64,13 @@ PriorityQueue.prototype.debug = function(){
 			return;
 		}
 		while(node) {
-			console.log("[i]=" + node.data[1] + " (" + node.data[0] + ")\n");
+			//console.log("[i]=" + node.data[1] + " (" + node.data[0] + ")\n");
 			node = node.next;
 			i++;
 		}
 };
 
-PriorityQueue.prototype.size = function(){
+PriorityQueue.prototype.getSize = function(){
 
         return this.size;
 
