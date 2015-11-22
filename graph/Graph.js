@@ -28,7 +28,7 @@ Graph.prototype.addNodePoint = function(node,point){
     this.nodes_point[node] = point
 };
 
-Graph.prototype.addNodeLonLat = function(node,lon,lat){
+Graph.prototype.addNodeLonlat = function(node,lon,lat){
 	
 	point = new Point(lon,lat);
     this.addNodePoint(node,point);
@@ -91,7 +91,7 @@ Graph.prototype.pathsFrom = function(from){
             //console.log("visited-"+ u + "=" +visited[u]);
 
             if (typeof nodes[u] == 'undefined') {
-                console.log("WARNING: 'u' is not found in the node list\n");
+                //console.log("WARNING: 'u' is not found in the node list\n");
                  continue;
             }
 

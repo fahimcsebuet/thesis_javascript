@@ -11,7 +11,7 @@ function load_graph(edge_list_url,node_list_url,map,callback){
 function getNodeList(node_list_url,edge_list_url,graph,map,callback){
 
     $.get(node_list_url, function(data) {
-        load_node(data,graph);
+        load_node(data,graph,map);
         getEdgeList(edge_list_url,graph,map,callback);
 
     }, 'text');
@@ -27,7 +27,7 @@ function getEdgeList(edge_list_url,graph,map,callback){
 
 }
 
-function load_node(data,graph){
+function load_node(data,graph,map){
 	
 	//console.log(data);
 	all_nodes = data.split('\n');
@@ -39,9 +39,13 @@ function load_node(data,graph){
 		if(typeof node_point[1] != 'undefined'){
 			point = node_point[1].split(',');
 			//console.log(node);
-			graph.addNodeLonLat(node,point[0],point[1]);
+			graph.addNodeLonlat(node,point[0],point[1]);
 		}
 	}
+}
+
+function comparePoint(ax,ay,bx,by){
+	
 }
 
 function load_edge(data,graph){
@@ -49,7 +53,10 @@ function load_edge(data,graph){
 	all_edges = data.split('\n');
 	for(p = 0; p < all_edges.length; p++){
 		edge = all_edges[p].split(',');
-		//graph.addEdge(edge[0],edge[1]);
+		if(typeof edge[1] != 'undefined'){
+			graph.addEdge(edge[0],edge[1],1);
+		}
+		
 	}
 }
 
