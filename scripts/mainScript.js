@@ -61,18 +61,13 @@ function runAlgorithm(map,algorithm){
 					alert("Select Source and Destination point!");
 				}
 				else{
-					
-					
 					  console.log("Running Sample Dijkstra ....");
 					  simple_dijkstra(map);
 				}
-              
         }
         else{
                 console.log("Unimplemented algo ....");
-
         }
-
 }
 
 function after(graph){

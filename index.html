@@ -37,7 +37,7 @@
         </div>
 		<br>
 		<div class="control_container row">
-            <div id="control" >
+            <div class="row" id="control" >
 			    <select id="algo_selector" class="selectpicker">
 					<option value="0" disabled="disabled" selected="selected">Select the Algorithm</option>
 					<option value="1">Run Sample</option>
@@ -52,6 +52,16 @@
 				<button id="run_button" type="button" class="btn btn-default" aria-label="Left Align">
 						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
 				</button>
+		
+
+				
+				<div class="loader">
+						<img id="loading" src="assets/ajax-loader.gif" >
+						<img id="success" width="25%" src="assets/tick.gif" >
+						<img id="fail" width="25%" src="assets/error.png" >
+						
+						<strong id="info"></strong>
+				</div>
 
 			</div>
         </div>

@@ -1,7 +1,10 @@
 
+body{
+	background: url('http://i.stack.imgur.com/jGlzr.png') no-repeat 0 0 scroll;
+}
 
 #OSM_Map {
-	height: 500px;
+	height: 550px;
 	width: 90%;
 	border: 1px solid #5b5b3e;
 	
@@ -10,23 +13,38 @@
 .map_container {
 	width: 100%;
 	margin-left: 5%;
-	
 }
 
 .control_container{
 	width: 50%;
 	margin-left: 25%;
 	/*border: 1px solid #5b5b3e;*/
+
 }
 
 #control {
 
-	width: 60%;
+	width: 67%;
 	margin-left: 20%;
-	border: 1px solid #5b5b3e;
+	/*border: 1px solid #5b5b3e;*/
 }
 
 .title_container{
 	width: 40%;
 	display: None;
+}
+
+
+.loader{
+	width: 31%;
+	float: right;
+}
+
+#loading,#success,#fail{
+	display: None;
+}
+
+.info{
+	 margin: auto;
+	 padding: 10px;
 }
