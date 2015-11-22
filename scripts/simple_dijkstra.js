@@ -10,8 +10,8 @@ function simple_dijkstra(map){
 }
 
 function simple_dijkstra_end(graph,map){
-	map.source_node = "1778185456";
-	map.destination_node = "1778185464";
+	//map.source_node = "1778185456";
+	//map.destination_node = "1778185464";
 	result_path = graph.getResultDataPath(map.source_node,map.destination_node);
 	
 	if(result_path[0].length < 1) 

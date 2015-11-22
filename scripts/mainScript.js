@@ -55,9 +55,18 @@ function runAlgorithm(map,algorithm){
 
         }
         else if(algorithm == "2"){
-
-                console.log("Running Sample Dijkstra ....");
-                simple_dijkstra(map);
+				
+				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
+					
+					alert("Select Source and Destination point!");
+				}
+				else{
+					
+					
+					  console.log("Running Sample Dijkstra ....");
+					  simple_dijkstra(map);
+				}
+              
         }
         else{
                 console.log("Unimplemented algo ....");

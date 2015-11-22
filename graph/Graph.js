@@ -52,7 +52,19 @@ Graph.prototype.addEdgeWeightLess = function(start, end){
 
 Graph.prototype.getWeight = function(start,end){
 
-        return 1;
+        slon = this.nodes_point[start].lon;
+		slat = this.nodes_point[start].lat;
+		
+		dlon = this.nodes_point[end].lon;
+		dlat = this.nodes_point[end].lat;
+		
+		weight = (slon-dlon)*(slon-dlon) + (slat-dlat)*(slat-dlat);
+		//console.log(weight);
+		return weight;
+		
+		
+		
+		
 };
 
 Graph.prototype.removeNode = function(index){
