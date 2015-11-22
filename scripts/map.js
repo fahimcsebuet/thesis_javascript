@@ -13,6 +13,9 @@ function Map(div) {
 	this.s_lon = -1;
 	this.d_lat = -1;
 	this.d_lon = -1;
+	
+	this.source_node = -1;
+	this.destination_node = -1;
 };
  
 Map.prototype.initOSM= function() {

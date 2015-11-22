@@ -28,6 +28,12 @@ Graph.prototype.addNodePoint = function(node,point){
     this.nodes_point[node] = point
 };
 
+Graph.prototype.addNodeLonLat = function(node,lon,lat){
+	
+	point = new Point(lon,lat);
+    this.addNodePoint(node,point);
+};
+
 Graph.prototype.addEdge = function(start, end, weight){
 
     if(typeof this.nodes[start] == 'undefined'){
@@ -140,7 +146,7 @@ Graph.prototype.getPath = function(from,to){
 
 Graph.prototype.getResultDataPath = function(from,to){
 
-    rpath = getPath(from,to);
+    rpath = this.getPath(from,to);
 
     var k;
     rdata = [];

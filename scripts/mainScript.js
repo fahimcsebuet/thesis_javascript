@@ -48,23 +48,26 @@ function runAlgorithm(map,algorithm){
                 console.log("Running Sample ....");
                 sdata = map.getSampleDataforLineString();
                 GraphTest();
+				
+				load_graph(edge_list_url,node_list_url,map,after);
+				
+				map.plotResult(sdata,style);
 
         }
         else if(algorithm == "2"){
 
                 console.log("Running Sample Dijkstra ....");
-                sdata = simple_dijkstra(map);
-                sdata = map.getSampleDataforLineString();
+                simple_dijkstra(map);
         }
         else{
                 console.log("Unimplemented algo ....");
 
         }
 
-        if(typeof sdata != 'undefined'){
-                map.plotResult(sdata,style);
-        }
+}
 
+function after(graph){
+	console.log('callback....');
 }
 
 
