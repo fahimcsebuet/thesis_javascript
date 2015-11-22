@@ -47,5 +47,9 @@ function load_node(data,graph){
 function load_edge(data,graph){
 	//console.log(data);
 	all_edges = data.split('\n');
+	for(p = 0; p < all_edges.length; p++){
+		edge = all_edges[p].split(',');
+		//graph.addEdge(edge[0],edge[1]);
+	}
 }
 
