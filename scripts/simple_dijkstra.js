@@ -7,6 +7,7 @@ node_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/node_list
 
 function simple_dijkstra(map){
 
+    $(".loader").show();
 	$("#loading").show();
 	$("#fail").hide();
 	$("#success").hide();

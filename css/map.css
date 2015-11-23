@@ -7,7 +7,7 @@ body{
 #OSM_Map {
 	//height: 850px;
     height:90vh;
-	width: 99%;
+	width: 100%;
 	border: 1px solid #5b5b3e;
 	
 }
@@ -38,9 +38,11 @@ body{
 
 
 .loader{
+    display: None;
 	width: 31%;
 	float: right;
-    border: 1px solid #5b5b3e;
+    /*border: 1px solid #5b5b3e;*/
+    margin-right: 18%;
 }
 
 #loading,#success,#fail{
