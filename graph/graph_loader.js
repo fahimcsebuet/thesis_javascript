@@ -77,6 +77,8 @@ function load_edge_with_weight(data,graph){
 		if(typeof nedge[1] != 'undefined'){
 			graph.addEdge(nedge[0],nedge[1],nedge[2]);
 			graph.addEdge(nedge[1],nedge[0],nedge[2]);
+
+            //console.log(nedge[2]);
 		}
 
 	}

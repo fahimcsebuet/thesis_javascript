@@ -15,7 +15,8 @@ function simple_dijkstra(map){
 	$("#info").html("Running...");
 	started_time = new Date().getTime();
 	
-	load_graph(edge_list_url,node_list_url,map,simple_dijkstra_end);
+	//load_graph(edge_list_url,node_list_url,map,simple_dijkstra_end);
+    load_graph(edge_list_dist_url,node_list_url,map,simple_dijkstra_end);
 }
 
 function simple_dijkstra_end(graph,map){
