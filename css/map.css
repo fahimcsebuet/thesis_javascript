@@ -18,16 +18,16 @@ body{
 }
 
 .control_container{
-	width: 50%;
-	margin-left: 25%;
+	width: 100%;
+	/*margin-left: 25%;*/
 	/*border: 1px solid #5b5b3e;*/
 
 }
 
 #control {
 
-	width: 67%;
-	margin-left: 20%;
+	width: 100%;
+	margin: auto;
 	/*border: 1px solid #5b5b3e;*/
 }
 
@@ -38,11 +38,11 @@ body{
 
 
 .loader{
-    display: None;
-	width: 31%;
-	float: right;
+    display: inline-block;
+	width: 150px;
+	/*float: right;*/
     /*border: 1px solid #5b5b3e;*/
-    margin-right: 18%;
+    /*margin-right: auto;*/
 }
 
 #loading,#success,#fail{

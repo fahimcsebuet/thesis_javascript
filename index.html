@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <title>Map</title>
 		<script type="text/javascript" src="library/Jquery/jquery.min.js"></script>
 
@@ -36,8 +37,8 @@
             <div id="OSM_Map" class="text-center"></div>
         </div>
 		<br>
-		<div class="control_container row">
-            <div class="row" id="control" >
+		<div align="center" class="control_container row">
+            <div align="center" class="row" id="control" >
 			    <select id="algo_selector" class="selectpicker">
 					<option value="0" disabled="disabled" selected="selected">Select the Algorithm</option>
 					<option value="1">Run Sample</option>
@@ -57,8 +58,8 @@
 				
 				<div class="loader">
 						<img id="loading" src="assets/ajax-loader.gif" >
-						<img id="success" width="25%" src="assets/tick.gif" >
-						<img id="fail" width="25%" src="assets/error.png" >
+						<img id="success" width="27%" src="assets/tick.gif" >
+						<img id="fail" width="22%" src="assets/error.png" >
 						
 						<strong id="info"></strong>
 				</div>
