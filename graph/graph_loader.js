@@ -68,3 +68,16 @@ function load_edge(data,graph){
 	}
 }
 
+function load_edge_with_weight(data,graph){
+	//console.log(data);
+	all_edges = data.split('\n');
+	for(p = 0; p < all_edges.length; p++){
+		nedge = all_edges[p].split(',');
+		if(typeof nedge[1] != 'undefined'){
+			graph.addEdge(nedge[0],nedge[1],nedge[2]);
+			graph.addEdge(nedge[1],nedge[0],nedge[2]);
+		}
+
+	}
+}
+
