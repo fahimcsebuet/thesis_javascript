@@ -21,7 +21,8 @@ function getNodeList(node_list_url,edge_list_url,graph,map,callback){
 function getEdgeList(edge_list_url,graph,map,callback){
 
     $.get(edge_list_url, function(data) {
-        load_edge(data,graph);
+        //load_edge(data,graph);
+        load_edge_with_weight(data,graph);
         callback(graph,map);
     }, 'text');
 
