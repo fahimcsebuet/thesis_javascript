@@ -34,8 +34,8 @@ Map.prototype.setClickEvents = function() {
 					that.s_lat = lonlat.lat;
 					that.s_lon = lonlat.lon;
 					
-				 var ourpoint1 = new OpenLayers.LonLat(that.s_lon,that.s_lat);
-	             ourpoint1.transform(new OpenLayers.Projection("EPSG:4326" ), that.osm_map.getProjectionObject());
+				 var ourpoint1 = new OpenLayers.LonLat(that.s_lon,that.s_lat);
+	             ourpoint1.transform(new OpenLayers.Projection("EPSG:4326" ), that.osm_map.getProjectionObject());
 				 
 				 that.markers.addMarker(new OpenLayers.Marker(ourpoint1));
 				 
@@ -51,8 +51,8 @@ Map.prototype.setClickEvents = function() {
 					that.d_lat = lonlat.lat;
 					that.d_lon = lonlat.lon;
 					
-				var ourpoint2 = new OpenLayers.LonLat(that.d_lon,that.d_lat);
-	             ourpoint2.transform(new OpenLayers.Projection("EPSG:4326" ), that.osm_map.getProjectionObject());
+				var ourpoint2 = new OpenLayers.LonLat(that.d_lon,that.d_lat);
+	             ourpoint2.transform(new OpenLayers.Projection("EPSG:4326" ),that.osm_map.getProjectionObject());
 				 
 				 that.markers.addMarker(new OpenLayers.Marker(ourpoint2));
 				 
