@@ -2,25 +2,25 @@
  * Created by milu on 11/19/15.
  */
 
-function load_graph(edge_list_url,node_list_url,map,callback){
+function load_graph(map,callback){
 
     graph = new Graph();
-    getNodeList(node_list_url,edge_list_url,graph,map,callback);
+    getNodeList(graph,map,callback);
 }
 
-function getNodeList(node_list_url,edge_list_url,graph,map,callback){
+function getNodeList(graph,map,callback){
 
     $.get(node_list_url, function(data) {
         load_node(data,graph,map);
-        getEdgeList(edge_list_url,graph,map,callback);
+        getEdgeList(graph,map,callback);
 
     }, 'text');
 
 }
 
-function getEdgeList(edge_list_url,graph,map,callback){
+function getEdgeList(graph,map,callback){
 
-    $.get(edge_list_url, function(data) {
+    $.get(edge_list_dist_url, function(data) {
         //load_edge(data,graph);
         load_edge_with_weight(data,graph);
         callback(graph,map);

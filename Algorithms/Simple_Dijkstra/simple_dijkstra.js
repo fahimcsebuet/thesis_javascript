@@ -2,10 +2,6 @@
  * Created by milu on 11/18/15.
  */
  
-edge_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/edge_list.txt';
-edge_list_dist_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/edge_list_dist.txt';
-node_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/node_list.txt';
-
 function simple_dijkstra(map){
 
     $(".loader").show();
@@ -16,7 +12,7 @@ function simple_dijkstra(map){
 	started_time = new Date().getTime();
 	
 	//load_graph(edge_list_url,node_list_url,map,simple_dijkstra_end);
-    load_graph(edge_list_dist_url,node_list_url,map,simple_dijkstra_end);
+    load_graph(map,simple_dijkstra_end);
 }
 
 function simple_dijkstra_end(graph,map){
