@@ -34,7 +34,7 @@ Map.prototype.setMidPoint = function(x,y,zoom) {
 };
 
 Map.prototype.createLineString = function(data) {
-	 linestring = new Array();
+	 var linestring = new Array();
 	 var length = data[0].length;
 	 for(i=0;i<length;i++)
 	 {
@@ -46,7 +46,7 @@ Map.prototype.createLineString = function(data) {
 
 
 Map.prototype.plotOSMLine = function(linestring,style) {
-	vector = new OpenLayers.Layer.Vector();
+	var vector = new OpenLayers.Layer.Vector();
 	var featureVector = new OpenLayers.Feature.Vector(
 			new OpenLayers.Geometry.LineString(linestring).transform(
 				new OpenLayers.Projection("EPSG:4326"), 
@@ -62,14 +62,14 @@ Map.prototype.plotOSMLine = function(linestring,style) {
 
 Map.prototype.plotResult = function(data,style) {
 
-    linestring = this.createLineString(data);
+    var linestring = this.createLineString(data);
     this.plotOSMLine(linestring,style);
 
 };
 
 Map.prototype.runSample = function(){
-        sampledata = this.getSampleDataforLineString();
-        samplestyle = this.getSampleStyle();
+        var sampledata = this.getSampleDataforLineString();
+        var samplestyle = this.getSampleStyle();
         this.plotResult(sampledata,samplestyle);
 };
 

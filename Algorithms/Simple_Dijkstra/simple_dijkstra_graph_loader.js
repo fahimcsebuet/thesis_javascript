@@ -2,45 +2,41 @@
  * Created by milu on 11/19/15.
  */
 
-function load_graph(map,callback){
-
-    graph = new Graph();
-    getNodeList(graph,map,callback);
-}
-
-function getNodeList(graph,map,callback){
-
-    $.get(node_list_url, function(data) {
-        load_node(data,graph,map);
-        getEdgeList(graph,map,callback);
-
-    }, 'text');
-
-}
-
-function getEdgeList(graph,map,callback){
-
-    $.get(edge_list_dist_url, function(data) {
-        //load_edge(data,graph);
-        load_edge_with_weight(data,graph);
-        callback(graph,map);
-    }, 'text');
-
-}
-
-function load_node(data,graph,map){
+ function GraphLoader(map,callback){
 	
-	//console.log(data);
-	all_nodes = data.split('\n');
-	source_closest = new ClosestNodeFinder(map.s_lon,map.s_lat);
-	destination_closest = new ClosestNodeFinder(map.d_lon,map.d_lat);
-	for(p = 0; p < all_nodes.length; p++){
+	this.map = map;
+	this.callback = callback;
+ 
+ }
+ 
+GraphLoader.prototype.load = function(){
+	
+	this.graph = new Graph();
+	this.getNodeList();
+}
+
+GraphLoader.prototype.getNodeList = function(){
+	var that = this;
+	 $.get(node_list_url, function(data) {
+        that.loadNode(data);
+        that.getEdgeList();
+    }, 'text');
+}
+
+GraphLoader.prototype.loadNode = function(data){
+		//console.log(data);
+	var map = this.map;
+	var graph = this.graph;
+	var all_nodes = data.split('\n');
+	var source_closest = new ClosestNodeFinder(map.s_lon,map.s_lat);
+	var destination_closest = new ClosestNodeFinder(map.d_lon,map.d_lat);
+	for(var p = 0; p < all_nodes.length; p++){
 		//console.log(all_nodes[p]);
-		node_point = all_nodes[p].split(':');
-		node = node_point[0];
+		var node_point = all_nodes[p].split(':');
+		var node = node_point[0];
 		
 		if(typeof node_point[1] != 'undefined'){
-			npoint = node_point[1].split(',');
+			var npoint = node_point[1].split(',');
 			
 			graph.addNodeLonlat(node,npoint[0],npoint[1]);
 			
@@ -49,31 +45,28 @@ function load_node(data,graph,map){
 			destination_closest.checkNode(node,npoint[0],npoint[1]);
 		}
 	}
-	
 	map.source_node = source_closest.closest_node;
-	//console.log(map.source_node);
 	map.destination_node = destination_closest.closest_node;
-	//console.log(map.destination_node);
+
+}
+ 
+GraphLoader.prototype.getEdgeList = function(){
+	var that = this;
+    $.get(edge_list_dist_url, function(data) {
+        //load_edge(data,graph);
+        that.loadEdgeWithWeight(data);
+        that.callback(that.graph,that.map);
+    }, 'text');
+
 }
 
-function load_edge(data,graph){
+GraphLoader.prototype.loadEdge = function(data){
+	
 	//console.log(data);
-	all_edges = data.split('\n');
+	var graph = this.graph;
+	var all_edges = data.split('\n');
 	for(p = 0; p < all_edges.length; p++){
-		nedge = all_edges[p].split(',');
-		if(typeof nedge[1] != 'undefined'){
-			graph.addEdgeWeightLess(nedge[0],nedge[1]);
-			graph.addEdgeWeightLess(nedge[1],nedge[0]);
-		}
-		
-	}
-}
-
-function load_edge_with_weight(data,graph){
-	//console.log(data);
-	all_edges = data.split('\n');
-	for(p = 0; p < all_edges.length; p++){
-		nedge = all_edges[p].split(',');
+		var nedge = all_edges[p].split(',');
 		if(typeof nedge[1] != 'undefined'){
 			graph.addEdge(nedge[0],nedge[1],nedge[2]);
 			graph.addEdge(nedge[1],nedge[0],nedge[2]);
@@ -84,3 +77,19 @@ function load_edge_with_weight(data,graph){
 	}
 }
 
+GraphLoader.prototype.loadEdgeWithWeight = function(data){
+	
+	//console.log(data);
+	var graph = this.graph;
+	var all_edges = data.split('\n');
+	for(p = 0; p < all_edges.length; p++){
+		var nedge = all_edges[p].split(',');
+		if(typeof nedge[1] != 'undefined'){
+			graph.addEdge(nedge[0],nedge[1],nedge[2]);
+			graph.addEdge(nedge[1],nedge[0],nedge[2]);
+
+            //console.log(nedge[2]);
+		}
+	}
+}
+ 

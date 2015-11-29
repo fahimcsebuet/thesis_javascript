@@ -8,11 +8,11 @@ $( document ).ready(function() {
         console.log( "ready!" );
         $('.selectpicker').selectpicker();
 
-        map = initMap();
+        var map = initMap();
 
         $('#run_button').click(function(){
                 console.log("Run Pressed");
-                algorithm = $('#algo_selector').val();
+                var algorithm = $('#algo_selector').val();
                 runAlgorithm(map,algorithm);
         });
 
@@ -27,7 +27,7 @@ $( document ).ready(function() {
 
 function initMap(){
 
-        map = new Map("OSM_Map");
+       var  map = new Map("OSM_Map");
         map.initOSM();
         map.setMidPoint(90.3989,23.7937,12);
         map.setClickEvents();
@@ -36,7 +36,7 @@ function initMap(){
 
 function runAlgorithm(map,algorithm){
 
-        style = map.getSampleStyle();
+        var style = map.getSampleStyle();
 
         if(algorithm  == "0"){
 
@@ -45,10 +45,10 @@ function runAlgorithm(map,algorithm){
         else if(algorithm == "1"){
 
                 console.log("Running Sample ....");
-                sdata = map.getSampleDataforLineString();
+                var sdata = map.getSampleDataforLineString();
                 GraphTest();
 				
-				load_graph(edge_list_url,node_list_url,map,after);
+				load_graph(map,after);
 				
 				map.plotResult(sdata,style);
 
@@ -61,7 +61,9 @@ function runAlgorithm(map,algorithm){
 				}
 				else{
 					  console.log("Running Sample Dijkstra ....");
-					  simple_dijkstra(map);
+					  //simple_dijkstra(map);
+					  var alg = new SimpleDijkstra(map);
+					  alg.run();
 				}
         }
         else{

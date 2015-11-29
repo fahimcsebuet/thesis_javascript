@@ -26,7 +26,7 @@ Map.prototype.setClickEvents = function() {
 	    }, 
 
 	    trigger: function(e) {
-	        lonlat = that.osm_map.getLonLatFromPixel(e.xy);
+	        var lonlat = that.osm_map.getLonLatFromPixel(e.xy);
 			lonlat.transform(new OpenLayers.Projection("EPSG:900913"), new OpenLayers.Projection("EPSG:4326"));
 		
 	        if(that.select_source==1)

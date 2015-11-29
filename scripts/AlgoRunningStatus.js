@@ -12,6 +12,7 @@ AlgoRunningStatus.prototype.set_status_running = function(){
 	$("#success").hide();
 	$("#info").html("Running...");
 	this.started_time = new Date().getTime();
+
 }
 
 AlgoRunningStatus.prototype.set_status_failed = function(msg){
@@ -41,7 +42,7 @@ AlgoRunningStatus.prototype.get_running_time = function(){
 
 AlgoRunningStatus.prototype.set_info_screen = function(msg){
 	
-	info_message = "Time: "+this.get_running_time()+"ms"
+	var info_message = "Time: "+this.get_running_time()+"ms"
 	$("#info").html(info_message);
 
 }
