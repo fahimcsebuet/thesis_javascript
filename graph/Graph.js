@@ -115,7 +115,7 @@ Graph.prototype.pathsFrom = function(from){
                 edge = nodes[u][k];
                 //console.log("edge="+edge);
 
-                alt = dist[u] + edge.weight;
+                alt = Big(dist[u]).plus(edge.weight).toString();
                 end = edge.end;
                 if (typeof dist[end] == 'undefined' || alt < dist[end]) {
                     previous[end] = u;
@@ -179,6 +179,7 @@ Graph.prototype.getResultDataPath = function(from,to){
 
 
 function compareWeights(a, b) {
+	//return Big(a.data[0]).minus(b.data[0]).toString();
 	return a.data[0] - b.data[0];
 }
 
