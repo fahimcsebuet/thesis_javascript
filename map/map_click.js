@@ -60,6 +60,21 @@ Map.prototype.setClickEvents = function() {
 
 				 that.select_dest = 0;
 			}
+			else if(that.alter_path_select){
+				
+				//console.log(">>>>");
+				
+				that.a_lon = lonlat.lon;
+				that.a_lat = lonlat.lat;
+				
+				that.addMarker(lonlat.lon,lonlat.lat);
+				console.log("You have clicked near a (" + that.a_lat + " N, " + that.a_lon+ " E)");
+				
+				that.alter_path_select = false;
+				that.select_dest=0;
+				that.select_source=0;
+			
+			}
 			else
 			{
 				that.select_dest=0;

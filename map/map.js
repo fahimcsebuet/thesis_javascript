@@ -13,9 +13,14 @@ function Map(div) {
 	this.s_lon = -1;
 	this.d_lat = -1;
 	this.d_lon = -1;
+	this.a_lat = -1;
+	this.a_lon = -1;
 	
 	this.source_node = -1;
 	this.destination_node = -1;
+	this.alter_node = -1;
+	
+	this.alter_path_select = false;
 };
  
 Map.prototype.initOSM= function() {

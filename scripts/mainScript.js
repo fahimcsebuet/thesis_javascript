@@ -21,6 +21,18 @@ $( document ).ready(function() {
                 map.clearMap();
 
         });
+		
+		$('#algo_selector').change(function(){
+			//console.log("ddd>>>");
+			if($(this).val()=="4"){
+				//console.log(">>>");
+				map.alter_path_select = true;
+			}
+			else{
+				map.alter_path_select = false;
+			}
+		
+		});
 
         console.log( "End!" );
 });
@@ -78,6 +90,20 @@ function runAlgorithm(map,algorithm){
 					  var alg = new CircularDijkstra(map);
 					  alg.run();
 				}
+        }
+		else if(algorithm == "4"){
+				
+				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
+					
+					alert("Run dijkstra first!");
+				}
+				else{
+					  console.log("Running Alter Path ....");
+					  //simple_dijkstra(map);
+					  var alg = new AlterPath(map);
+					  alg.run();
+				}
+				
         }
         else{
                 console.log("Unimplemented algo ....");
