@@ -24,7 +24,7 @@ $( document ).ready(function() {
 		
 		$('#algo_selector').change(function(){
 			//console.log("ddd>>>");
-			if($(this).val()=="4"){
+			if($(this).val()=="5"){
 				//console.log(">>>");
 				map.alter_path_select = true;
 			}
@@ -92,6 +92,19 @@ function runAlgorithm(map,algorithm){
 				}
         }
 		else if(algorithm == "4"){
+				
+				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
+					
+					alert("Select Source and Destination point!");
+				}
+				else{
+					  console.log("Running Sample Dijkstra ....");
+					  //simple_dijkstra(map);
+					  var alg = new BandDijkstra(map);
+					  alg.run();
+				}
+        }
+		else if(algorithm == "5"){
 				
 				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
 					
