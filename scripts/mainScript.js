@@ -66,6 +66,19 @@ function runAlgorithm(map,algorithm){
 					  alg.run();
 				}
         }
+		else if(algorithm == "3"){
+				
+				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
+					
+					alert("Select Source and Destination point!");
+				}
+				else{
+					  console.log("Running Sample Dijkstra ....");
+					  //simple_dijkstra(map);
+					  var alg = new CircularDijkstra(map);
+					  alg.run();
+				}
+        }
         else{
                 console.log("Unimplemented algo ....");
         }

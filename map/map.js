@@ -67,6 +67,15 @@ Map.prototype.plotResult = function(data,style) {
 
 };
 
+Map.prototype.addMarker = function(lon,lat) {
+
+	var ourpoint2 = new OpenLayers.LonLat(lon,lat);
+	ourpoint2.transform(new OpenLayers.Projection("EPSG:4326" ),this.osm_map.getProjectionObject());
+				 
+	this.markers.addMarker(new OpenLayers.Marker(ourpoint2));
+
+};
+
 Map.prototype.runSample = function(){
         var sampledata = this.getSampleDataforLineString();
         var samplestyle = this.getSampleStyle();
