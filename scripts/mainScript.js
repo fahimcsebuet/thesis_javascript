@@ -24,7 +24,7 @@ $( document ).ready(function() {
 		
 		$('#algo_selector').change(function(){
 			//console.log("ddd>>>");
-			if($(this).val()=="5"){
+			if($(this).val()=="6"){
 				//console.log(">>>");
 				map.alter_path_select = true;
 			}
@@ -105,6 +105,20 @@ function runAlgorithm(map,algorithm){
 				}
         }
 		else if(algorithm == "5"){
+				
+				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
+					
+					alert("Run dijkstra first!");
+				}
+				else{
+					  console.log("Running Alter Path ....");
+					  //simple_dijkstra(map);
+					  var alg = new AStar(map);
+					  alg.run();
+				}
+				
+        }
+		else if(algorithm == "6"){
 				
 				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
 					

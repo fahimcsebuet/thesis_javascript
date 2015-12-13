@@ -128,6 +128,71 @@ Graph.prototype.pathsFrom = function(from){
     return [dist,previous]
 };
 
+Graph.prototype.pathsFromAStar = function(from,to){
+
+    dist = [];
+    dist[from] = 0;
+    visited = [];
+    previous = [];
+    queue = [];
+
+    Q = new PriorityQueue(compareWeights);
+	Q.add([dist[from], from]);
+
+    nodes = this.nodes;
+
+    while(Q.getSize() > 0) {
+
+            //console.log("size = "+Q.getSize());
+
+            node_data = Q.remove();
+            distance = node_data[0];
+            u = node_data[1];
+
+            //console.log(node_data);
+
+            if (typeof visited[u] != 'undefined') {
+                continue;
+            }
+            visited[u] = true;
+
+            //console.log("visited-"+ u + "=" +visited[u]);
+
+            if (typeof nodes[u] == 'undefined') {
+                //console.log("WARNING: 'u' is not found in the node list\n");
+                 continue;
+            }
+
+            var k;
+            //console.log("node length = "+ nodes[u].length);
+
+            for(k=0; k < nodes[u].length; k++)
+            {
+                edge = nodes[u][k];
+                //console.log("edge="+edge);
+
+                alt = Big(dist[u]).plus(edge.weight).toString();
+                end = edge.end;
+                if (typeof dist[end] == 'undefined' || alt < dist[end]) {
+                    previous[end] = u;
+                    dist[end] = alt;
+					
+					f_hu = alt + Math.sqrt(this.getWeight(end,to));
+                    
+					Q.add([f_hu, end]);
+					
+                }
+            }
+			
+			if(u==to) {
+						console.log("terminated...");
+						break;
+			}
+    }
+
+    return [dist,previous]
+};
+
 Graph.prototype.pathsTo = function(node_dsts, tonode){
 //
         current = tonode;
@@ -156,6 +221,17 @@ Graph.prototype.getPath = function(from,to){
 	return this.pathsTo(prev,to);
 };
 
+Graph.prototype.getPathAStar = function(from,to){
+
+    pathfrom = this.pathsFromAStar(from,to);
+    //console.log(pathfrom[0]);
+    //console.log(pathfrom[1]);
+
+    distances = pathfrom[0];
+    prev = pathfrom[1];
+	return this.pathsTo(prev,to);
+};
+
 Graph.prototype.getResultDataPath = function(from,to){
 
     rpath = this.getPath(from,to);
@@ -176,6 +252,25 @@ Graph.prototype.getResultDataPath = function(from,to){
     return rdata;
 };
 
+Graph.prototype.getResultDataPathAStar = function(from,to){
+
+    rpath = this.getPathAStar(from,to);
+
+    var k;
+    rdata = [];
+    rdata[0] = [];
+    rdata[1] = [];
+    rdata[2] = [];
+    for(k=0;k<rpath.length;k++){
+
+        rdata[0][k] = rpath[k];
+        rdata[1][rdata[0][k]] = this.nodes_point[rdata[0][k]].lon;
+        rdata[2][rdata[0][k]] = this.nodes_point[rdata[0][k]].lat;
+
+    }
+
+    return rdata;
+};
 
 
 function compareWeights(a, b) {
