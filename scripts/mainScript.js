@@ -108,10 +108,10 @@ function runAlgorithm(map,algorithm){
 				
 				if(map.s_lon == -1 || map.s_lat == -1 || map.d_lon == -1 || map.d_lat == -1){
 					
-					alert("Run dijkstra first!");
+					alert("Select Source and Destination point!");
 				}
 				else{
-					  console.log("Running Alter Path ....");
+					  console.log("Running AStar Search ....");
 					  //simple_dijkstra(map);
 					  var alg = new AStar(map);
 					  alg.run();
@@ -131,6 +131,12 @@ function runAlgorithm(map,algorithm){
 					  alg.run();
 				}
 				
+        }
+		else if(algorithm == "7"){
+				console.log("Showing Vertex Cover ....");
+				show_vertex_cover(map);		
+
+				console.log("Showing Vertex Cover Ended ....");				
         }
         else{
                 console.log("Unimplemented algo ....");
