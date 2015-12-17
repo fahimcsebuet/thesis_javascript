@@ -52,8 +52,12 @@ BandGraphLoader.prototype.checkBandrArea = function(node){
 	var hor = Math.sqrt(a*a + b*b)
 	
 	var dist = lob/hor;
+	sd_dist = (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2);
+	sd_dist = Math.sqrt(sd_dist);
 	
-	if(dist > 0.1) return false;
+	band_wid = (sd_dist*0.621118)/3
+	
+	if(dist > band_wid) return false;
 	
 	return this.checkCircularArea(node);
 }
