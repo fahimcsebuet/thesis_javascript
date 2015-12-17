@@ -124,7 +124,7 @@ Graph.prototype.pathsFrom = function(from){
                 }
             }
     }
-
+	this.visited = visited;
     return [dist,previous]
 };
 
@@ -135,6 +135,7 @@ Graph.prototype.pathsFromAStar = function(from,to){
     visited = [];
     previous = [];
     queue = [];
+	
 
     Q = new PriorityQueue(compareWeights);
 	Q.add([dist[from], from]);
@@ -170,14 +171,15 @@ Graph.prototype.pathsFromAStar = function(from,to){
             {
                 edge = nodes[u][k];
                 //console.log("edge="+edge);
-
-                alt = Big(dist[u]).plus(edge.weight).toString();
+				
+				alt_big = Big(dist[u]).plus(edge.weight);
+                alt = alt_big.toString();
                 end = edge.end;
                 if (typeof dist[end] == 'undefined' || alt < dist[end]) {
                     previous[end] = u;
                     dist[end] = alt;
 					
-					f_hu = alt + Math.sqrt(this.getWeight(end,to));
+					f_hu = alt_big.plus(Math.sqrt(this.getWeight(end,to)));
                     
 					Q.add([f_hu, end]);
 					
@@ -189,6 +191,8 @@ Graph.prototype.pathsFromAStar = function(from,to){
 						break;
 			}
     }
+	
+	this.visited = visited;
 
     return [dist,previous]
 };
@@ -271,6 +275,18 @@ Graph.prototype.getResultDataPathAStar = function(from,to){
 
     return rdata;
 };
+
+Graph.prototype.showVisitedNode =function(map){
+	
+	for(var a_node in this.visited){
+		
+		//console.log(a_node);
+		map.addMarker(this.nodes_point[a_node].lon,this.nodes_point[a_node].lat);
+	
+	}
+	
+
+}
 
 
 function compareWeights(a, b) {

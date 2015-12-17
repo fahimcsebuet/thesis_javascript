@@ -33,6 +33,18 @@ $( document ).ready(function() {
 			}
 		
 		});
+		
+		$("#visited_button").click(function(){
+		
+			if(global_graph){
+			
+				global_graph.showVisitedNode(map);
+			}
+			
+		
+		});
+		
+		cache_map();
 
         console.log( "End!" );
 });
@@ -44,6 +56,18 @@ function initMap(){
         map.setMidPoint(90.3989,23.7937,12);
         map.setClickEvents();
         return map;
+}
+
+function cache_map(){
+
+	 $.get(node_list_url, function(data) {
+			console.log("node caching done ..." + data[0]);
+    }, 'text');
+	
+    $.get(edge_list_dist_url, function(data) {
+			console.log("edge caching done ..."+ data[0]);
+    }, 'text');
+
 }
 
 function runAlgorithm(map,algorithm){
@@ -76,6 +100,8 @@ function runAlgorithm(map,algorithm){
 					  //simple_dijkstra(map);
 					  var alg = new SimpleDijkstra(map);
 					  alg.run();
+					  
+					  global_graphA = global_graph;
 				}
         }
 		else if(algorithm == "3"){
@@ -115,6 +141,7 @@ function runAlgorithm(map,algorithm){
 					  //simple_dijkstra(map);
 					  var alg = new AStar(map);
 					  alg.run();
+					  global_graphA = global_graph;
 				}
 				
         }

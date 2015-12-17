@@ -4,4 +4,5 @@ node_list_url = 'http://fahimcsebuet.github.io/thesis_javascript/graph/node_list
 
 global_graph = null;
 algo_status = null;
+global_graphA = null;
 

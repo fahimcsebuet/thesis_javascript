@@ -32,6 +32,8 @@ AlgoRunningStatus.prototype.set_status_succeeded = function(msg){
 	$("#success").show();
 	
 	this.set_info_screen(msg);
+	
+	$("#visited_button").removeAttr("disabled");
 }
 
 AlgoRunningStatus.prototype.get_running_time = function(){

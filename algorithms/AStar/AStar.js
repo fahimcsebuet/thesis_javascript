@@ -11,9 +11,9 @@ function AStar(map){
 AStar.prototype.run = function(){
 	algo_status.set_status_running();
 	//global_graph = null;
-	if(global_graph){
+	if(global_graphA){
 
-		this.getClosestSourceDestNode(global_graph,this.map);
+		this.getClosestSourceDestNode(global_graphA,this.map);
 		this.end(global_graph,this.map);
 		
 	}
@@ -41,6 +41,7 @@ AStar.prototype.end = function(graph,map){
 	}
 	console.log("Simple dijkstra end ....");
 	global_graph = graph;
+	//graph.showVisitedNode(map);
 }
 
 AStar.prototype.getClosestSourceDestNode = function(graph,map){
