@@ -1,0 +1,50 @@
+
+#OSM_Map {
+	//height: 850px;
+    height:85vh;
+	width: 100%;
+	border: 1px solid #5b5b3e;
+	
+}
+
+.map_container {
+	width: 99%;
+	margin-left: .5%;
+}
+
+.control_container{
+	width: 100%;
+	/*margin-left: 25%;*/
+	/*border: 1px solid #5b5b3e;*/
+
+}
+
+#control {
+
+	width: 100%;
+	margin: auto;
+	/*border: 1px solid #5b5b3e;*/
+}
+
+.title_container{
+	width: 40%;
+	display: None;
+}
+
+
+.loader{
+    display: inline-block;
+	width: 150px;
+	/*float: right;*/
+    /*border: 1px solid #5b5b3e;*/
+    /*margin-right: auto;*/
+}
+
+#loading,#success,#fail{
+	display: None;
+}
+
+.info{
+	 margin: auto;
+	 padding: 10px;
+}

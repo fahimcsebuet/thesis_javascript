@@ -1,0 +1,92 @@
+
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>Map</title>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/Jquery/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://fahimcsebuet.github.io/thesis_javascript/library/bootstrap-3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fahimcsebuet.github.io/thesis_javascript/library/bootstrap-3.3.5/css/bootstrap-theme.min.css" >
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://fahimcsebuet.github.io/thesis_javascript/library/bootstrap-select/css/bootstrap-select.min.css" >
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/jquery.svg/jquery.svg.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/OpenLayers/OpenLayers.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/json/json2.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/library/Big/big.min.js"></script>
+
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/scripts/mainScript.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/scripts/settings.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/scripts/AlgoRunningStatus.js"></script>
+		
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/graph/PriorityQueue.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/graph/Graph.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/graph/ClosestNodeFinder.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/graph/GraphTest.js"></script>
+		
+
+        <link rel="stylesheet" type="text/css" href="https://fahimcsebuet.github.io/thesis_javascript/css/map_buet_site.css"> 
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/map/map.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/map/map_click.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/map/map_sample_values.js"></script>
+        
+		
+		
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/simple_dijkstra/simple_dijkstra_graph_loader.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/simple_dijkstra/simple_dijkstra.js"></script>
+		
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/circular_dijkstra/circular_dijkstra_graph_loader.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/circular_dijkstra/circular_dijkstra.js"></script>
+		
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/band_dijkstra/band_dijkstra_graph_loader.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/band_dijkstra/band_dijkstra.js"></script>
+		
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/alter_path/alter_path_graph_loader.js"></script>
+        <script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/alter_path/alter_path.js"></script>
+		
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/AStar/AStar.js"></script>
+		<script type="text/javascript" src="https://fahimcsebuet.github.io/thesis_javascript/algorithms/vertex_cover/vertex_cover.js"></script>
+
+        
+        <div class="map_container row">
+			<div  class="title_container alert-success text-center" >Surveillnace System of Dhaka City</div>
+            <div id="OSM_Map" class="text-center"></div>
+        </div>
+		<br>
+		<div align="center" class="control_container row">
+            <div align="center" class="row" id="control" >
+			    <select id="algo_selector" class="selectpicker">
+					<option value="0" disabled="disabled" selected="selected">Select the Algorithm</option>
+					
+                    <option value="2">Simple Dijkstra</option>
+					<option value="3">Circular Dijkstra</option>
+					<option value="4">Band Dijkstra</option>
+					<option value="5">A* Search</option>
+					<option value="6">Alternating Path</option>
+					<option value="7">Show VertexCover</option>
+				</select>
+
+                <button id="clear_button" title="clear screen" type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-repeat" aria-hidden="true"></span>
+				</button>
+
+				<button id="run_button" title="Run Algorithm" type="button" class="btn btn-default" aria-label="Left Align">
+						<span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+				</button>
+				
+				<button id="visited_button" title="Show visited node" type="button" class="btn btn-default" aria-label="Left Align" disabled>
+						<span aria-hidden="true"><strong>V</strong></span>
+				</button>
+		
+
+				
+				<div class="loader">
+						<img id="loading" src="assets/ajax-loader.gif" >
+						<img id="success" width="27%" src="https://fahimcsebuet.github.io/thesis_javascript/assets/tick.gif" >
+						<img id="fail" width="22%" src="https://fahimcsebuet.github.io/thesis_javascript/assets/error.png" >
+						
+						<strong id="info"></strong>
+				</div>
+
+			</div>
+        </div>
