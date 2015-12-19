@@ -47,7 +47,7 @@ $( document ).ready(function() {
 		cache_map();
 		
 		$(".scroll").removeClass("scroll");
-		//setupTitle()
+		setupTitle();
         console.log( "End!" );
 });
 
