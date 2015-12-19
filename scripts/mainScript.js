@@ -45,6 +45,8 @@ $( document ).ready(function() {
 		});
 		
 		cache_map();
+		
+		$(".scroll").removeClass("scroll");
 
         console.log( "End!" );
 });
