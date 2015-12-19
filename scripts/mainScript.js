@@ -47,7 +47,7 @@ $( document ).ready(function() {
 		cache_map();
 		
 		$(".scroll").removeClass("scroll");
-		setupTitle()
+		//setupTitle()
         console.log( "End!" );
 });
 
@@ -57,7 +57,7 @@ function setupTitle(){
 	
 	var milu_link = '<a href="http://milubuet.pythonanywhere.com/">Lutfar Rahman Milu</a>';
 	var fahim_link = '<a href="#">Fahim Tahmid Chowdhury</a>';
-	var combined_link = '<div>' + created by: + milu_link + '&nbsp;&&nbsp;' + fahim_link + '</div>';
+	var combined_link = '<div>' + 'created by:' + milu_link + '&nbsp;&&nbsp;' + fahim_link + '</div>';
 	
 	var title_text = 'Surveillance System of Dhaka City';
 	
