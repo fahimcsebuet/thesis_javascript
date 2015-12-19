@@ -1,5 +1,5 @@
 
-vertex_cover_url = "http://fahimcsebuet.github.io/thesis_javascript/graph/vertex_cover.txt"
+vertex_cover_url = "https://fahimcsebuet.github.io/thesis_javascript/graph/vertex_cover.txt"
 
 function show_vertex_cover(map){
 
