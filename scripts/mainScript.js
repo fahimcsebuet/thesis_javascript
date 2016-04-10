@@ -56,7 +56,7 @@ function setupTitle(){
 	$(".title_container").empty();
 	
 	var milu_link = '<a href="http://milubuet.pythonanywhere.com/">Lutfar Rahman Milu</a>';
-	var fahim_link = '<a href="#">Fahim Tahmid Chowdhury</a>';
+	var fahim_link = '<a href="http://www.linkedin.com/in/fahim-tahmid-chowdhury-01664a61">Fahim Tahmid Chowdhury</a>';
 	var combined_link = '<div>' + 'created by:' + milu_link + '&nbsp;&&nbsp;' + fahim_link + '</div>';
 	
 	var title_text = 'Surveillance System of Dhaka City';
