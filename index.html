@@ -61,13 +61,13 @@
             <div align="center" class="row" id="control" >
 			    <select id="algo_selector" class="selectpicker">
 					<option value="0" disabled="disabled" selected="selected">Select the Algorithm</option>
-					
                     <option value="2">Simple Dijkstra</option>
 					<option value="3">Circular Dijkstra</option>
 					<option value="4">Band Dijkstra</option>
 					<option value="5">A* Search</option>
 					<option value="6">Alternating Path</option>
 					<option value="7">Show VertexCover</option>
+					<option value="8">Create Data</option>
 				</select>
 
                 <button id="clear_button" title="clear screen" type="button" class="btn btn-default" aria-label="Left Align">
@@ -90,6 +90,8 @@
 						<img id="fail" width="22%" src="assets/error.png" >
 						
 						<strong id="info"></strong>
+						<a download="ComparativeResults.csv" id="downloadlink" style="display: none">Download</a>
+						<input type="hidden" id="hidden_data" value=""/>
 				</div>
 
 			</div>

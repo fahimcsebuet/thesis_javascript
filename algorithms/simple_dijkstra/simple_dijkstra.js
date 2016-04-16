@@ -6,6 +6,7 @@ function SimpleDijkstra(map){
 
 	this.map = map;
 	algo_status = new AlgoRunningStatus("simple dijkstra");
+	
 }
 
 SimpleDijkstra.prototype.run = function(){
@@ -15,7 +16,6 @@ SimpleDijkstra.prototype.run = function(){
 
 		this.getClosestSourceDestNode(global_graph,this.map);
 		this.end(global_graph,this.map);
-		
 	}
 	else{
 		
@@ -56,5 +56,4 @@ SimpleDijkstra.prototype.getClosestSourceDestNode = function(graph,map){
 	
 	map.source_node = source_closest.closest_node;
 	map.destination_node = destination_closest.closest_node;
-
 }

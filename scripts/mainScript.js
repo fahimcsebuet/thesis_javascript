@@ -94,7 +94,6 @@ function runAlgorithm(map,algorithm){
                 console.log("Select an algo..");
         }
         else if(algorithm == "1"){
-
                 console.log("Running Sample ....");
                 var sdata = map.getSampleDataforLineString();
                 GraphTest();
@@ -180,8 +179,11 @@ function runAlgorithm(map,algorithm){
 
 				console.log("Showing Vertex Cover Ended ....");				
         }
+		else if(algorithm == "8"){
+			create_data(map);
+		}
         else{
-                console.log("Unimplemented algo ....");
+            console.log("Unimplemented algo ....");
         }
 }
 
@@ -189,5 +191,36 @@ function after(graph){
 	console.log('callback....');
 }
 
-
-
+function create_data(map) {
+	var src_dest = map.getLatAndLonForCreateData();
+	map.s_lat = src_dest[0][0];
+	map.s_lon = src_dest[0][1];
+	map.d_lat = src_dest[1][0];
+	map.d_lon = src_dest[1][1];
+	var alg = new SimpleDijkstra(map);
+	for(var i=0; i<100; i++)
+	{
+		alg.run();
+	}
+	alg = new SimpleDijkstra(map);
+	for(var i=0; i<100; i++)
+	{
+		alg.run();
+		global_graphA = global_graph;
+	}
+	alg = new CircularDijkstra(map);
+	for(var i=0; i<100; i++)
+	{
+		alg.run();
+	}
+	alg = new BandDijkstra(map);
+	for(var i=0; i<100; i++)
+	{
+		alg.run();
+	}
+	alg = new AStar(map);
+	for(var i=0; i<100; i++)
+	{
+		alg.run();
+	}
+}

@@ -16,6 +16,20 @@ Map.prototype.getSampleDataforLineString = function() {
 	return result
 };
 
+Map.prototype.getLatAndLonForCreateData = function() {
+	ret = new Array();
+	ret[0] = new Array(); // Sample Lat and Lon for source
+	ret[1] = new Array(); // Sample Lat and Lon for destination
+	// Source Shahjalal International Airport
+	ret[0][0] = "23.850468700130858"; // Lat 
+	ret[0][1] = "90.4081854500638"; // Lon
+	// Destination Kamlapur Railway Station
+	ret[1][0] = "23.731170773559835"; // Lat
+	ret[1][1] = "90.42526575706768"; // Lon
+	
+	return ret;
+}
+
 Map.prototype.getSampleStyle = function() {
 	var style = {
 		strokeColor: '#0000ff',
