@@ -198,28 +198,28 @@ function create_data(map) {
 	map.d_lat = src_dest[1][0];
 	map.d_lon = src_dest[1][1];
 	var alg = new SimpleDijkstra(map);
-	for(var i=0; i<100; i++)
+	for(var i=0; i<create_data_iteration; i++)
 	{
 		alg.run();
 	}
 	alg = new SimpleDijkstra(map);
-	for(var i=0; i<100; i++)
+	for(var i=0; i<create_data_iteration; i++)
 	{
 		alg.run();
 		global_graphA = global_graph;
 	}
 	alg = new CircularDijkstra(map);
-	for(var i=0; i<100; i++)
+	for(var i=0; i<create_data_iteration; i++)
 	{
 		alg.run();
 	}
 	alg = new BandDijkstra(map);
-	for(var i=0; i<100; i++)
+	for(var i=0; i<create_data_iteration; i++)
 	{
 		alg.run();
 	}
 	alg = new AStar(map);
-	for(var i=0; i<100; i++)
+	for(var i=0; i<create_data_iteration; i++)
 	{
 		alg.run();
 	}

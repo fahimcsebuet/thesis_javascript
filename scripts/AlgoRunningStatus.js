@@ -55,7 +55,16 @@ AlgoRunningStatus.prototype.set_info_screen = function(msg){
 
 AlgoRunningStatus.prototype.set_hidden_data = function(){
 	var hidden_data_value = $("#hidden_data").val();
-	hidden_data_value = hidden_data_value + this.get_running_time() + ",";
+	arguments.callee.count = ++arguments.callee.count || 1;
+	hidden_data_value = hidden_data_value + this.get_running_time();
+	if(arguments.callee.count % create_data_iteration == 0)
+	{
+		hidden_data_value = hidden_data_value + "\r\n";
+	}
+	else
+	{
+		hidden_data_value = hidden_data_value + ",";
+	}
 	console.log("start time: " + this.started_time);
 	console.log("ended time: " + this.ended_time);
 	console.log(this.get_running_time());
